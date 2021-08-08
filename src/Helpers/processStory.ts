@@ -23,20 +23,27 @@ const processStory = (input: string): Sentence[] => {
                     input = input.slice(1);
                 }
                 else if (input[0] === '.') {
-                    if (input[1] === ' ') {
-                        sentences.push({
-                            words: [...sentence.words],
-                        });
-                        input = input.slice(2);
-                        sentence = {
-                            words: [],
-                        };
-                    }
-                    else {
-                        // Return error.
-                        return;
-                    }
 
+                    sentences.push({
+                        words: [...sentence.words],
+                    });
+
+                    sentence = {
+                        words: [],
+                    };
+
+                    input = input.slice(1);
+
+                    if (input.length > 0) {
+
+                        if (input[0] === ' ') {
+                            input = input.slice(1);
+                        }
+                        else {
+                            // Return error.
+                            return;
+                        }
+                    }
                 }
                 else {
                     // Return error.
