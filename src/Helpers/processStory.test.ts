@@ -3,7 +3,7 @@ import { Sentence } from '../Models/Sentence';
 
 describe('processStory', () => {
 
-    describe('Happy path cases', () => {
+    describe('Happy-path cases', () => {
 
         it.each([
             [
@@ -36,6 +36,40 @@ describe('processStory', () => {
                     },
                     {
                         words: ['It', 'was', 'very', 'cold',],
+                    },
+                ],
+            ],
+        ])('Should return correct result for "%s"', (input: string, actual: Sentence[]) => {
+
+            // ARRANGE and ACT.
+            const expected = processStory(input);
+
+            // ASSERT.
+            expect(expected).toEqual(actual);
+
+        });
+
+    });
+
+    describe('Negative-path cases', () => {
+
+        it.each([
+            [
+                'This should fail.',
+                [
+                    {
+                        words: ['This', 'should', 'fail',],
+                    },
+                ],
+            ],
+            [
+                'Paul walked into the room. This should also fail.',
+                [
+                    {
+                        words: ['Paul', 'walked', 'into', 'the', 'room',],
+                    },
+                    {
+                        words: ['This', 'should', 'also', 'fail',],
                     },
                 ],
             ],
