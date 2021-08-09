@@ -85,4 +85,44 @@ describe('processStory', () => {
 
     });
 
+    describe('Negative-path cases 2', () => {
+
+        it.each([
+            [
+                'What the heck is this!?!?!? This should fail for sure!!!',
+                [
+                    {
+                        words: ['What', 'the', 'heck', 'is', 'this',],
+                    },
+                    {
+                        words: ['This', 'should', 'fail', 'for', 'sure',],
+                    },
+                ],
+            ],
+            [
+                'This is a sentence. But this???! Get out of here.',
+                [
+                    {
+                        words: ['This', 'is', 'a', 'sentence',],
+                    },
+                    {
+                        words: ['But', 'this',],
+                    },
+                    {
+                        words: ['Get', 'out', 'of', 'here',],
+                    },
+                ],
+            ],
+        ])('Should return correct result for "%s"', (input: string, actual: Sentence[]) => {
+
+            // ARRANGE and ACT.
+            const expected = processStory(input);
+
+            // ASSERT.
+            expect(expected).toEqual(actual);
+
+        });
+
+    });
+
 });
