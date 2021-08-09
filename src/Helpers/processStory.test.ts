@@ -125,4 +125,72 @@ describe('processStory', () => {
 
     });
 
+    describe('Negative-path cases 3', () => {
+
+        it.each([
+            [
+                'Commas, right, are what separate sentences! You get me!?!?',
+                [
+                    {
+                        words: ['Commas', 'right', 'are', 'what', 'separate', 'sentences',],
+                    },
+                    {
+                        words: ['You', 'get', 'me',],
+                    },
+                ],
+            ],
+            [
+                'Thankfully, my work should make this readable. At least, for now.',
+                [
+                    {
+                        words: ['Thankfully', 'my', 'work', 'should', 'make', 'this', 'readable',],
+                    },
+                    {
+                        words: ['At', 'least', 'for', 'now',],
+                    },
+                ],
+            ],
+        ])('Should return correct result for "%s"', (input: string, actual: Sentence[]) => {
+
+            // ARRANGE and ACT.
+            const expected = processStory(input);
+
+            // ASSERT.
+            expect(expected).toEqual(actual);
+
+        });
+
+    });
+
+    describe('Negative-path cases 4', () => {
+
+        it.each([
+            [
+                'The hyphen is - just glorious, really.',
+                [
+                    {
+                        words: ['The', 'hyphen', 'is', 'just', 'glorious', 'really',],
+                    },
+                ],
+            ],
+            [
+                'Hyphens are - it seems - a useful method for separation.',
+                [
+                    {
+                        words: ['Hyphens', 'are', 'it', 'seems', 'a', 'useful', 'method', 'for', 'separation',],
+                    },
+                ],
+            ],
+        ])('Should return correct result for "%s"', (input: string, actual: Sentence[]) => {
+
+            // ARRANGE and ACT.
+            const expected = processStory(input);
+
+            // ASSERT.
+            expect(expected).toEqual(actual);
+
+        });
+
+    });
+
 });

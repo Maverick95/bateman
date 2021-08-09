@@ -19,8 +19,8 @@ const processStory = (input: string): Sentence[] => {
                 sentence.words.push(input.substring(0, index));
                 input = input.slice(index);
 
-                // Words of sentence separated by single space.
-                const regexSpace: RegExp = /^ [a-z]+/i;
+                // Words of sentence separated by single spaces, or hyphens, or maybe commas.
+                const regexSpace: RegExp = /^(,|( -))? [a-z]+/i;
 
                 // End of sentence, indicated by a single period, or by any length of question/exclamation marks.
                 // Followed either by nothing or single space or more words.
@@ -28,7 +28,8 @@ const processStory = (input: string): Sentence[] => {
 
                 if (regexSpace.test(input)) {
 
-                    input = input.slice(1);
+                    const index2 = input.search(/[a-z]/i);
+                    input = input.slice(index2);
 
                 }
                 else if (regexSentenceEnd.test(input)) {
