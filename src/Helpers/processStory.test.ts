@@ -173,10 +173,10 @@ describe('processStory', () => {
             [
                 'By god!These       rules are not  .Tricky      .      ! ! ?? ! Bless   !',
                 [
-                    { words: ['By', 'god' ], },
-                    { words: ['These', 'rules', 'are', 'not' ], },
-                    { words: ['Tricky' ], },
-                    { words: ['Bless' ], },
+                    { words: ['By', 'god'], },
+                    { words: ['These', 'rules', 'are', 'not'], },
+                    { words: ['Tricky'], },
+                    { words: ['Bless'], },
                 ]
             ]
         ])('Should return correct result for "%s"', (input: string, actual: Sentence[]) => {
@@ -189,8 +189,86 @@ describe('processStory', () => {
 
         });
 
+    });
 
+    describe('Addition 6 - sections of words separated with single hyphens', () => {
 
+        it.each([
+            [
+                'Peter Warnington-Medley-Smith  came  to visit today.  ',
+                [
+                    { words: ['Peter', 'Warnington-Medley-Smith', 'came', 'to', 'visit', 'today'], },
+                ],
+            ],
+            [
+                'Make       post-haste with    post-haste  !  ',
+                [
+                    { words: ['Make', 'post-haste', 'with', 'post-haste'], },
+                ],
+            ]
+        ])('Should return correct result for "%s"', (input: string, actual: Sentence[]) => {
+
+            // ARRANGE and ACT.
+            const expected = processStory(input);
+
+            // ASSERT.
+            expect(expected).toEqual(actual);
+
+        });
+    });
+
+    describe('Addition 7 - three or more periods separates words in a sentence', () => {
+
+        it.each([
+            [
+                'These sentences are    ...  getting complicated.  ',
+                [
+                    { words: ['These', 'sentences', 'are', 'getting', 'complicated'], },
+                ],
+            ],
+            [
+                'Zzzz... goodnight .... my .......      love .  ',
+                [
+                    { words: ['Zzzz', 'goodnight', 'my', 'love'], },
+                ],
+            ]
+        ])('Should return correct result for "%s"', (input: string, actual: Sentence[]) => {
+
+            // ARRANGE and ACT.
+            const expected = processStory(input);
+
+            // ASSERT.
+            expect(expected).toEqual(actual);
+
+        });
+    });
+
+    describe('Addition 8 - numbers are also valid characters', () => {
+
+        it.each([
+            [
+                'I ate 11   sausage rolls   today.   ',
+                [
+                    { words: ['I', 'ate', '11', 'sausage', 'rolls', 'today'], },
+                ],
+            ],
+            [
+                'This is the 2nd time   using  numbers. Not the 1st      .  ',
+                [
+                    { words: ['This', 'is', 'the', '2nd', 'time', 'using', 'numbers'], },
+                    { words: ['Not', 'the', '1st'], },
+                    
+                ],
+            ]
+        ])('Should return correct result for "%s"', (input: string, actual: Sentence[]) => {
+
+            // ARRANGE and ACT.
+            const expected = processStory(input);
+
+            // ASSERT.
+            expect(expected).toEqual(actual);
+
+        });
     });
 
 });
