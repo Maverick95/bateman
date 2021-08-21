@@ -1,7 +1,8 @@
 import React from 'react';
+import StoryUploadComponent from './Components/StoryUploadComponent/StoryUploadComponent';
 
 const App: React.FC = () => (
-<p>This is the base App component.</p>
+    <StoryUploadComponent />
 );
 
 export default App;

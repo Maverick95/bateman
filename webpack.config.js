@@ -13,6 +13,10 @@ module.exports = {
                 test: /\.[tj]sx?$/,
                 use: 'babel-loader',
             },
+            {
+                test: /\.s?css$/,
+                use: ['style-loader', 'css-loader'],
+            },
         ],
     },
     plugins: [ new HtmlWebpackPlugin({
@@ -20,6 +24,6 @@ module.exports = {
     })],
     mode: 'development',
     resolve: {
-        extensions: ['.js', '.ts', '.jsx', '.tsx'],
+        extensions: ['.js', '.ts', '.jsx', '.tsx', '.css', '.scss'],
     },
 };

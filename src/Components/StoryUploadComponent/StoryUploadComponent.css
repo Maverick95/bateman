@@ -1,0 +1,12 @@
+:root {
+    --story-upload-dimensions: 200px;
+}
+
+.story-upload {
+    width: var(--story-upload-dimensions);
+    height: var(--story-upload-dimensions);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffaaaa;
+}
