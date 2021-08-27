@@ -11,28 +11,44 @@ const storyUploadDragAndDropStatusLookups: Record<StoryUploadDragAndDropStatus, 
     [StoryUploadDragAndDropStatus.SUCCESS]: 'Well done!',
 };
 
-const StoryUploadComponent: React.FC = () => {
+interface IProps {
+    processFile: (file: File) => void;
+}
+
+interface IGetStatusReturn {
+    status: StoryUploadDragAndDropStatus;
+    file?: File;
+}
+
+const StoryUploadComponent: React.FC<IProps> = ( {processFile} ) => {
 
     const [status, setStatus] = useState<StoryUploadDragAndDropStatus>(StoryUploadDragAndDropStatus.NO_DRAG);
 
-    const getStatus = (files: DataTransferItemList): StoryUploadDragAndDropStatus => {
+    const getStatus = (
+        files: DataTransferItemList,
+        includeFile: boolean = false
+        ): IGetStatusReturn => {
         const fileCount = files?.length ?? 0;
         if (fileCount > 0) {
             if (fileCount === 1) {
                 if (files[0].kind === 'file' && files[0].type === 'text/plain') {
-                    return StoryUploadDragAndDropStatus.SUCCESS;
+                    const result: IGetStatusReturn = { status: StoryUploadDragAndDropStatus.SUCCESS };
+                    if (includeFile) {
+                        result.file = files[0].getAsFile();
+                    }
+                    return result;
                 }
-                return StoryUploadDragAndDropStatus.WRONG_TYPE;
+                return { status: StoryUploadDragAndDropStatus.WRONG_TYPE };
             }
-            return StoryUploadDragAndDropStatus.MULTIPLE_ITEMS;
+            return { status: StoryUploadDragAndDropStatus.MULTIPLE_ITEMS };
         }
-        return StoryUploadDragAndDropStatus.NO_ITEM;
+        return { status: StoryUploadDragAndDropStatus.NO_ITEM };
     }
 
     const storyUploadDragEnter = (event: React.DragEvent): void => {
         const files: DataTransferItemList = event.dataTransfer?.items;
         const statusFromFiles = getStatus(files);
-        setStatus(statusFromFiles);
+        setStatus(statusFromFiles.status);
     }
 
     const storyUploadDragOver = (event: React.DragEvent): void => {
@@ -42,9 +58,9 @@ const StoryUploadComponent: React.FC = () => {
     const storyUploadDrop = (event: React.DragEvent): void => {
         event.preventDefault();
         const files: DataTransferItemList = event.dataTransfer?.items;
-        const statusFromFiles = getStatus(files);
-        if (statusFromFiles === StoryUploadDragAndDropStatus.SUCCESS) {
-            console.log('Success!');
+        const statusFromFiles = getStatus(files, true);
+        if (statusFromFiles.status === StoryUploadDragAndDropStatus.SUCCESS) {
+            processFile(statusFromFiles.file);
         }
         else {
             setStatus(StoryUploadDragAndDropStatus.DROPPED_WRONG);
