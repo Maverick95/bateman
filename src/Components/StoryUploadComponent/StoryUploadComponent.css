@@ -5,8 +5,16 @@
 .story-upload {
     width: var(--story-upload-dimensions);
     height: var(--story-upload-dimensions);
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #ffaaaa;
+}
+
+.story-upload-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
 }

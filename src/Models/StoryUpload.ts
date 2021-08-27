@@ -3,5 +3,6 @@ export enum StoryUploadDragAndDropStatus {
     NO_ITEM = 'No Item',
     MULTIPLE_ITEMS = 'Multiple Items',
     WRONG_TYPE = 'Wrong Type',
+    DROPPED_WRONG = 'Dropped Wrong',
     SUCCESS = 'Success',
 };
