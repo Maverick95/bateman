@@ -43,12 +43,12 @@ const processStory = (input: string): Sentence[] => {
                 }
                 else {
                     // Return error.
-                    return;
+                    return null;
                 }
             }
             else {
                 // Return error.
-                return;
+                return null;
             }
 
         }

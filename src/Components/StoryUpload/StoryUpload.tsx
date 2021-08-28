@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StoryUploadDragAndDropStatus } from '../../Models/StoryUpload';
-import './StoryUploadComponent.css';
+import './StoryUpload.css';
 
 const storyUploadDragAndDropStatusLookups: Record<StoryUploadDragAndDropStatus, string> = {
     [StoryUploadDragAndDropStatus.NO_DRAG]: 'Do some dragging!',
@@ -20,7 +20,7 @@ interface IGetStatusReturn {
     file?: File;
 }
 
-const StoryUploadComponent: React.FC<IProps> = ( {processFile} ) => {
+const StoryUpload: React.FC<IProps> = ( {processFile} ) => {
 
     const [status, setStatus] = useState<StoryUploadDragAndDropStatus>(StoryUploadDragAndDropStatus.NO_DRAG);
 
@@ -88,4 +88,4 @@ const StoryUploadComponent: React.FC<IProps> = ( {processFile} ) => {
 
 };
 
-export default StoryUploadComponent;
+export default StoryUpload;
