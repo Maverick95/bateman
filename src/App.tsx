@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import StoryUpload from './Components/StoryUpload/StoryUpload';
 import StoryDisplay from './Components/StoryDisplay/StoryDisplay';
 import { Sentence } from './Models/Sentence';
-import processStory from './Helpers/processStory';
+import { processStory } from './Helpers/processStory';
 
 const App: React.FC = () => {
 

@@ -1,4 +1,7 @@
 import { Sentence } from '../Models/Sentence';
+import sha1 from 'sha1';
+
+const getSentenceUniqueKey = (words: string[]): string => sha1(words.join(''));
 
 const processStory = (input: string): Sentence[] => {
 
@@ -59,4 +62,7 @@ const processStory = (input: string): Sentence[] => {
 
 };
 
-export default processStory;
+export {
+    getSentenceUniqueKey,
+    processStory
+};

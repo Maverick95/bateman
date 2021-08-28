@@ -1,4 +1,4 @@
-import processStory from './processStory';
+import { processStory } from './processStory';
 import { Sentence } from '../Models/Sentence';
 
 describe('processStory', () => {
