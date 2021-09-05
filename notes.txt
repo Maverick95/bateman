@@ -1,0 +1,46 @@
+So this may be rambling at first but hopefully I'll identify something.
+
+The first thing is to identify the base STRUCTURE of the person's outfit.
+
+What are the separate components? Are these required / optional?
+
+Suit
+Blazer
+Sport coat
+Tuxedo
+Jacket
+Shirt
+Tie
+Coat
+Dinner jacket
+Trousers
+Wing tips (type of shoe)
+Lace-ups (type of shoe)
+Just shoes
+Loafers
+Pumps
+Eyeglasses
+Watch
+T-shirt
+Slip-ons
+Belt
+A handkerchief in the pocket
+Sweater
+Corduroys
+Moccasins
+Slacks
+Socks
+Pocket square
+Waistcoat
+
+
+https://thehelmclothing.com/blogs/our-thoughts/all-about-the-wingtip-shoe
+
+So there generally is a property hierarchy here.
+
+At the top you have OUTFIT.
+
+Under this are the individual components, there is an order to each to say how to construct in the sentence,
+
+So you should probably start by just returning the basic components of the outfit, whatever these are.
+
