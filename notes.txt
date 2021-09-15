@@ -4,36 +4,6 @@ The first thing is to identify the base STRUCTURE of the person's outfit.
 
 What are the separate components? Are these required / optional?
 
-Suit
-Blazer
-Sport coat
-Tuxedo
-Jacket
-Shirt
-Tie
-Coat
-Dinner jacket
-Trousers
-Wing tips (type of shoe)
-Lace-ups (type of shoe)
-Just shoes
-Loafers
-Pumps
-Eyeglasses
-Watch
-T-shirt
-Slip-ons
-Belt
-A handkerchief in the pocket
-Sweater
-Corduroys
-Moccasins
-Slacks
-Socks
-Pocket square
-Waistcoat
-
-
 https://thehelmclothing.com/blogs/our-thoughts/all-about-the-wingtip-shoe
 
 So there generally is a property hierarchy here.
@@ -44,3 +14,109 @@ Under this are the individual components, there is an order to each to say how t
 
 So you should probably start by just returning the basic components of the outfit, whatever these are.
 
+But the thing is, these individual components could be possibilities within a certain set.
+
+So the first level below OUTFIT is COMPONENT
+
+But what I'm thinking is, the simplest level is the AREA OF THE BODY that the article relates to.
+
+What you want to achieve is the barest hierarchy that, at the lowest level, within each category, you can pick
+ONLY ONE of the elements.
+
+For example, within CHEST below, you can't wear a suit and a blazer, because these are both OUTER COAT components.
+
+Also, suit and tuxedo, it's ambiguous if this relates to the suit/trouser combination, or just the suit.
+
+Waistcoat is only available if shirt is chosen.
+
+For "sweater", you can't wear a waistcost if you're wearing a sweater.
+
+You might find other strange combinations of clothing allocated.
+
+BUT thinking about it now, one of the main things you are missing is SITUATION.
+
+Because this in fact completely dictates the choices of outfit?
+
+Is this a hierarchy above the outfit itself?
+
+Or is a hierarchy the correct way of viewing this?
+
+
+
+
+OUTFIT
+
+    EYES
+
+        Eyeglasses
+
+    WRIST
+
+        Watch
+
+    CHEST
+
+        ON CHEST
+
+            Shirt
+
+                OVER SHIRT
+
+                    Waistcoat
+                    Sweater vest
+                    Sweater
+
+                NECK
+
+                    Tie
+
+            T-shirt
+
+                OVER SHIRT
+
+                    Sweater
+                    Sweater vest
+
+        OVER CHEST
+
+            Suit (?)
+            Blazer
+            Sport coat
+            Tuxedo (?)
+            Jacket
+            Dinner jacket
+
+            IN THE POCKET
+
+                Handkerchief
+                Pocket square
+
+        COAT LAYER 2
+
+            Coat
+            Topcoat
+            Overcoat
+
+    LEGS
+
+        Trousers
+        Corduroys
+        Slacks
+        
+    WAIST
+
+        Belt
+
+    ANKLES
+
+        Socks
+
+    FEET
+
+        Wing tips
+        Lace-ups
+        Shoes
+        Loafers
+        Pumps
+        Moccasins
+        Slip-ons
