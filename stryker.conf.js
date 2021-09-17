@@ -6,4 +6,7 @@ module.exports = {
   reporters: ["html", "clear-text", "progress"],
   testRunner: "jest",
   coverageAnalysis: "perTest",
+  jest: {
+    "configFile": "jest.config.stryker.js",
+  },
 };
