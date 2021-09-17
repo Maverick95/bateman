@@ -1,5 +1,5 @@
 import { Sentence } from '../Models/Sentence';
-import sha1 from 'sha1';
+const sha1 = require('sha1');
 
 const getSentenceUniqueKey = (words: string[]): string => sha1(words.join(''));
 

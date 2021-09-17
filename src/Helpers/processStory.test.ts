@@ -1,5 +1,21 @@
-import { processStory } from './processStory';
+import { getSentenceUniqueKey, processStory } from './processStory';
 import { Sentence } from '../Models/Sentence';
+const sha1 = require('sha1');
+
+describe('getSentenceUniqueKey', () => {
+
+  it('returns correct result', () => {
+
+    const input = ['This', 'is', 'a', 'sentence'];
+    const expected = sha1('Thisisasentence');
+
+    const actual = getSentenceUniqueKey(input);
+
+    expect(actual).toEqual(expected);
+
+  });
+
+});
 
 describe('processStory', () => {
 
