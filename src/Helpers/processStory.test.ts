@@ -19,6 +19,33 @@ describe('getSentenceUniqueKey', () => {
 
 describe('processStory', () => {
 
+    describe('Errors to be returned', () => {
+
+      it.each([
+        [ '&$%' ],
+        [ 'Contains some f&"9d@@@nky characters' ],
+        [ 'Single' ]
+      ])('Should fail for "%s"', (input: string) => {
+
+        expect(processStory(input)).toBeNull();
+
+      });
+
+    });
+
+    describe('Killing mutants (Step 1)', () => {
+
+      // Spaces in-between words and sentences can include invalid characters and these do not get errors.
+      it.each([
+        [ 'This string.#Should fail now.' ],
+      ])('Should fail for "%s"', (input: string) => {
+
+        expect(processStory(input)).toBeNull();
+
+      });
+
+    });
+
     describe('Initial happy path - only words, spaces and periods allowed', () => {
 
         it.each([

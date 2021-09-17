@@ -2,9 +2,10 @@
   "name": "bateman",
   "version": "1.0.0",
   "scripts": {
-    
     "test": "jest",
-    "build": "webpack build"
+    "test:coverage": "jest --coverage",
+    "build": "webpack build",
+    "stryker": "npx stryker run"
   },
   "keywords": [],
   "author": "",
