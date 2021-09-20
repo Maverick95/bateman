@@ -41,82 +41,92 @@ Is this a hierarchy above the outfit itself?
 
 Or is a hierarchy the correct way of viewing this?
 
+I think there are definitely groups of things like below.
 
+However I think instead that things should be able to INCLUDE or EXCLUDE others.
+
+Everything is CHOSEN, but whether or not it is included in the description is OPTIONAL.
+
+Therefore everything has a probability both of being CHOSEN and of being DESCRIBED
+
+Being DESCRIBED is optional always.
+
+At this point, I'll go with the below, but I will modify in the future
+based on style decisions. For example, you probably can't wear loafers with a tuxedo.
+
+Little thing I've picked up, something can be a singular or a plural.
+
+This is at the lower level.
 
 
 OUTFIT
 
-    EYES
+    EYES (optional)
 
         Eyeglasses
 
-    WRIST
+    WRIST (optional)
 
         Watch
 
-    CHEST
+    ON CHEST (mandatory)
 
-        ON CHEST
+        Shirt
+        T-shirt (excluded by Tuxedo, Tuxedo with trousers, Dinner jacket)
 
-            Shirt
+    OVER CHEST 1 (optional)
 
-                OVER SHIRT
+        Waistcoat (included by Shirt)
+        Sweater vest (excluded by Tuxedo, Tuxedo w/t, Dinner jacket)
+        Sweater (excluded by Tuxedo, Tuxedo w/t, Dinner jacket)
 
-                    Waistcoat
-                    Sweater vest
-                    Sweater
+    NECKWEAR (mandatory, included by Shirt)
 
-                NECK
+        Tie
+        Bow tie
 
-                    Tie
+    OVER CHEST 2 (optional)
 
-            T-shirt
+        Suit
+        Suit with trousers
+        Blazer
+        Sport coat 
+        Tuxedo
+        Tuxedo with trousers
+        Jacket 
+        Dinner jacket
 
-                OVER SHIRT
+    IN THE POCKET (optional, included by Suit, Suit w/t, Blazer, Sport coat, Tuxedo, Tuxedo w/t,  Jacket, Dinner jacket)
 
-                    Sweater
-                    Sweater vest
+        Handkerchief
+        Pocket square
 
-        OVER CHEST
+    COAT LAYER 2 (optional)
 
-            Suit (?)
-            Blazer
-            Sport coat
-            Tuxedo (?)
-            Jacket
-            Dinner jacket
+        Coat
+        Topcoat
+        Overcoat
 
-            IN THE POCKET
-
-                Handkerchief
-                Pocket square
-
-        COAT LAYER 2
-
-            Coat
-            Topcoat
-            Overcoat
-
-    LEGS
+    LEGS (mandatory, excluded by Suit with Trousers, Tuxedo with Trousers)
 
         Trousers
         Corduroys
         Slacks
         
-    WAIST
+    WAIST (mandatory)
 
         Belt
 
-    ANKLES
+    ANKLES (mandatory)
 
         Socks
 
-    FEET
+    FEET (mandatory)
 
-        Wing tips
+        Wing tips 
         Lace-ups
         Shoes
-        Loafers
-        Pumps
-        Moccasins
-        Slip-ons
+        Loafers (excluded by Suit with Trousers, Tuxedo with Trousers)
+        Pumps (excluded by Suit with Trousers, Tuxedo with Trousers)
+        Moccasins (excluded by Suit with Trousers, Tuxedo with Trousers)
+        Slip-ons (excluded by Suit with Trousers, Tuxedo with Trousers)
