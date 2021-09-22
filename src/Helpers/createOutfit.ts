@@ -20,7 +20,7 @@ interface CreateOutfitRule {
     effect: string,
 }
 
-interface CreateOutfitData {
+export interface CreateOutfitData {
     
     categories: CreateOutfitCategory[],
     items: CreateOutfitItem[],
