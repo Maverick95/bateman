@@ -1,20 +1,24 @@
 import { Brand } from './Brand';
 
-interface Node {
+export interface ClothingNode {
     id: string,
     description: string,
+    score: GetScore,
     includedBy?: string[],
     excludedBy?: string[],
 }
 
-export interface ClothingItem extends Node {
+export type GetScore = () => number;
+
+export interface ClothingItem extends ClothingNode {
     plural: boolean,
     brands: Brand[],
 }
 
-export interface ClothingCategory extends Node {
+export interface ClothingCategory extends ClothingNode {
     mandatory: boolean,
     items: ClothingItem[],
 }
 
 export type ClothingOutfit = ClothingCategory[];
+
