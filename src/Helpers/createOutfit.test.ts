@@ -1,11 +1,12 @@
 import { data_generateProcessData } from './createOutfit.testdata';
-import { CreateOutfitData, generateProcessData } from './createOutfit';
+import { CreateOutfitData, createOutfit, generateProcessData } from './createOutfit';
+import { Clothing } from '../Data/Clothing';
 import { ClothingOutfit } from '../Models/Clothing';
 
 describe('generateProcessData', () => {
 
     it.each(data_generateProcessData.map((value) => [ value.input, value.expected ]))
-    ('Test case %#', (input, expected) => {
+    ('should generate correct output for Test Case %#', (input, expected) => {
 
         // ARRANGE.
         const input_typed = input as ClothingOutfit;
@@ -16,6 +17,17 @@ describe('generateProcessData', () => {
 
         // ASSERT
         expect(output).toEqual(expected_typed);
+
+    });
+
+});
+
+describe('createOutfit', () => {
+
+    it('should correctly produce outfit for the standard dataset', () => {
+
+        const actual = createOutfit(Clothing);
+        console.log(actual);
 
     });
 

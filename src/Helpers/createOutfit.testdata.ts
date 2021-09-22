@@ -56,48 +56,54 @@ export const data_generateProcessData: { input: ClothingOutfit, expected: Create
 
             categories: [
                 {
-                    id: 'category_1',
-                    score: 0.5,
-                    included: false,
-                    excluded: false
-                },
-                {
                     id: 'category_2',
                     score: 0.7,
                     included: true,
-                    excluded: false
+                    excluded: false,
+                    processed: false,
+                },
+                {
+                    id: 'category_1',
+                    score: 0.5,
+                    included: false,
+                    excluded: false,
+                    processed: false,
                 }
             ],
 
             items: [
                 {
                     id: 'item_1',
+                    output: 'a item_1',
                     category_id: 'category_1',
                     score: 0.7,
-                    included: false,
+                    included: true,
                     excluded: false
                 },
                 {
                     id: 'item_2',
+                    output: 'a item_2',
                     category_id: 'category_1',
                     score: 0.6,
-                    included: false,
-                    excluded: false
-                },
-                {
-                    id: 'item_3',
-                    category_id: 'category_2',
-                    score: 0.3,
                     included: true,
                     excluded: false
                 },
                 {
                     id: 'item_4',
+                    output: 'a item_4',
                     category_id: 'category_2',
                     score: 0.5,
                     included: true,
                     excluded: false
                 },
+                {
+                    id: 'item_3',
+                    output: 'a item_3',
+                    category_id: 'category_2',
+                    score: 0.3,
+                    included: true,
+                    excluded: false
+                }
             ],
 
             includes: [

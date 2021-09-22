@@ -60,7 +60,7 @@ export const Clothing: ClothingOutfit = [
             },
             {
                 id: 't_shirt',
-                description: 't_shirt',
+                description: 'T-shirt',
                 plural: false,
                 excludedBy: [ 'tuxedo', 'tuxedo_with_trousers', 'dinner_jacket' ],
                 brands: [],
@@ -88,7 +88,7 @@ export const Clothing: ClothingOutfit = [
             },
             {
                 id: 'sweater_vest',
-                description: 'sweater_vest',
+                description: 'sweater vest',
                 plural: false,
                 excludedBy: [ 'tuxedo', 'tuxedo_with_trousers', 'dinner_jacket' ],
                 brands: [],
@@ -124,7 +124,7 @@ export const Clothing: ClothingOutfit = [
             },
             {
                 id: 'bow_tie',
-                description: 'bow_tie',
+                description: 'bow tie',
                 plural: false,
                 brands: [],
                 score: getScoreUniform(0, 1, Math.random),
@@ -150,7 +150,7 @@ export const Clothing: ClothingOutfit = [
             },
             {
                 id: 'suit_with_trousers',
-                description: 'suit_with_trousers',
+                description: 'suit',
                 plural: false,
                 brands: [],
                 score: getScoreUniform(0, 1, Math.random),
@@ -164,7 +164,7 @@ export const Clothing: ClothingOutfit = [
             },
             {
                 id: 'sport_coat',
-                description: 'sport_coat',
+                description: 'sport coat',
                 plural: false,
                 brands: [],
                 score: getScoreUniform(0, 1, Math.random),
@@ -178,7 +178,7 @@ export const Clothing: ClothingOutfit = [
             },
             {
                 id: 'tuxedo_with_trousers',
-                description: 'tuxedo_with_trousers',
+                description: 'tuxedo',
                 plural: false,
                 brands: [],
                 score: getScoreUniform(0, 1, Math.random),
@@ -192,7 +192,7 @@ export const Clothing: ClothingOutfit = [
             },
             {
                 id: 'dinner_jacket',
-                description: 'dinner_jacket',
+                description: 'dinner jacket',
                 plural: false,
                 brands: [],
                 score: getScoreUniform(0, 1, Math.random),
@@ -219,7 +219,7 @@ export const Clothing: ClothingOutfit = [
             },
             {
                 id: 'pocket_square',
-                description: 'pocket_square',
+                description: 'pocket square',
                 plural: false,
                 brands: [],
                 score: getScoreUniform(0, 1, Math.random),
@@ -343,14 +343,14 @@ export const Clothing: ClothingOutfit = [
         items: [
             {
                 id: 'wing_tips',
-                description: 'wing_tips',
+                description: 'wing tips',
                 plural: true,
                 brands:[],
                 score: getScoreUniform(0, 1, Math.random),
             },
             {
                 id: 'lace_ups',
-                description: 'lace_ups',
+                description: 'lace-ups',
                 plural: true,
                 brands:[],
                 score: getScoreUniform(0, 1, Math.random),
@@ -393,7 +393,7 @@ export const Clothing: ClothingOutfit = [
             
             {
                 id: 'slip_ons',
-                description: 'slip_ons',
+                description: 'slip-ons',
                 plural: true,
                 excludedBy: [ 'suit', 'suit_with_trousers', 'tuxedo', 'tuxedo_with_trousers', 'dinner_jacket' ],
                 brands:[],
