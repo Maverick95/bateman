@@ -81,3 +81,14 @@ OUTFIT
         Pumps (excluded by Suit with Trousers, Tuxedo with Trousers)
         Moccasins (excluded by Suit with Trousers, Tuxedo with Trousers)
         Slip-ons (excluded by Suit with Trousers, Tuxedo with Trousers)
+
+
+
+Next step is probably to dicern which categories are actually included.
+
+Actually remember for now you're just building up the categories.
+
+Next I think is adding the brands in.
+
+Brands are included within the lower levels, so you'll have to trawl through the notes again.
+

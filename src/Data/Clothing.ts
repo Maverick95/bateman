@@ -17,7 +17,10 @@ export const Clothing: ClothingOutfit = [
                 id: 'eyeglasses',
                 description: 'eyeglasses',
                 plural: true,
-                brands: [],
+                brands: [
+                    Brand.OLIVER_PEOPLES,
+                    Brand.LAFONT_PARIS,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             }
         ]
@@ -36,7 +39,9 @@ export const Clothing: ClothingOutfit = [
                 id: 'watch',
                 description: 'watch',
                 plural: false,
-                brands: [],
+                brands: [
+                    Brand.SAKS,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             }
         ]
@@ -55,7 +60,31 @@ export const Clothing: ClothingOutfit = [
                 id: 'shirt',
                 description: 'shirt',
                 plural: false,
-                brands: [],
+                brands: [
+                    Brand.IKE_BEHAR,
+                    Brand.VALENTINO_COUTURE,
+                    Brand.GITMAN_BROTHERS,
+                    Brand.BASILE,
+                    Brand.CERRUTI_1881,
+                    Brand.PAUL_SMITH,
+                    Brand.RALPH_LAUREN,
+                    Brand.PIERRE_CARDIN,
+                    Brand.BILL_BLASS,
+                    Brand.JOSEPH_ABBOUD,
+                    Brand.CHARIVARI,
+                    Brand.ALEXANDER_JULIAN,
+                    Brand.GIORGIO_ARMANI,
+                    Brand.BURBERRY,
+                    Brand.PATRICK_AUBERT,
+                    Brand.YVES_SAINT_LAURENT,
+                    Brand.HUGO_BOSS,
+                    Brand.POLO,
+                    Brand.JOHN_REYLE,
+                    Brand.RONALDUS_SHAMASK,
+                    Brand.GIANNI_VERSACE,
+                    Brand.CHRISTIAN_DIOR,
+                    Brand.HERMES,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             },
             {
@@ -63,7 +92,9 @@ export const Clothing: ClothingOutfit = [
                 description: 'T-shirt',
                 plural: false,
                 excludedBy: [ 'tuxedo', 'tuxedo_with_trousers', 'dinner_jacket' ],
-                brands: [],
+                brands: [
+                    Brand.AGNES_B,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             }
         ]
@@ -83,7 +114,9 @@ export const Clothing: ClothingOutfit = [
                 description: 'waistcoat',
                 plural: false,
                 includedBy: [ 'shirt' ],
-                brands: [],
+                brands: [
+                    Brand.KILGOUR_FRENCH_STANBURY,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             },
             {
@@ -99,7 +132,11 @@ export const Clothing: ClothingOutfit = [
                 description: 'sweater',
                 plural: false,
                 excludedBy: [ 'tuxedo', 'tuxedo_with_trousers', 'dinner_jacket' ],
-                brands: [],
+                brands: [
+                    Brand.PAUL_STUART,
+                    Brand.GIORGIO_ARMANI,
+                    Brand.HERMES,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             }
         ]
@@ -119,14 +156,39 @@ export const Clothing: ClothingOutfit = [
                 id: 'tie',
                 description: 'tie',
                 plural: false,
-                brands: [],
+                brands: [
+                    Brand.RALPH_LAUREN,
+                    Brand.BILL_BLASS,
+                    Brand.VALENTINO_COUTURE,
+                    Brand.JOSEPH_ABBOUD,
+                    Brand.PERRY_ELLIS,
+                    Brand.HUGO_BOSS,
+                    Brand.BILL_BLASS_SIGNATURE,
+                    Brand.PAUL_STUART,
+                    Brand.GIORGIO_ARMANI,
+                    Brand.RESIKEIO,
+                    Brand.CLAIBORNE,
+                    Brand.POLO,
+                    Brand.JOHN_REYLE,
+                    Brand.ZANZARRA,
+                    Brand.GIANNI_VERSACE,
+                    Brand.GIVENCHY_GENTLEMAN,
+                    Brand.SAVOY,
+                    Brand.HERMES,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             },
             {
                 id: 'bow_tie',
                 description: 'bow tie',
                 plural: false,
-                brands: [],
+                brands: [
+                    Brand.RAINBOW_NECKWEAR,
+                    Brand.MARTIN_DINGMAN_NECKWEAR,
+                    Brand.RALPH_LAUREN,
+                    Brand.PIERRE_CARDIN,
+                    Brand.SAKS,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             }
         ]
@@ -145,14 +207,54 @@ export const Clothing: ClothingOutfit = [
                 id: 'suit',
                 description: 'suit',
                 plural: false,
-                brands: [],
+                brands: [
+                    Brand.ERMENEGILDO_ZEGNA,
+                    Brand.CERRUTI_1881,
+                    Brand.CANALI_MILANO,
+                    Brand.VALENTINO_COUTURE,
+                    Brand.CHAPS,
+                    Brand.ALEXANDER_JULIAN,
+                    Brand.HUGO_BOSS,
+                    Brand.RALPH_LAUREN,
+                    Brand.GIORGIO_CORREGGIARI,
+                    Brand.BILL_ROBINSON,
+                    Brand.GIORGIO_ARMANI,
+                    Brand.LUBIAM,
+                    Brand.CHRISTIAN_DIOR,
+                    Brand.PATRICK_AUBERT,
+                    Brand.YVES_SAINT_LAURENT,
+                    Brand.POLO,
+                    Brand.JOHN_REYLE,
+                    Brand.GIANNI_VERSACE,
+                    Brand.SCHOENEMAN,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             },
             {
                 id: 'suit_with_trousers',
                 description: 'suit',
                 plural: false,
-                brands: [],
+                brands: [
+                    Brand.ERMENEGILDO_ZEGNA,
+                    Brand.CERRUTI_1881,
+                    Brand.CANALI_MILANO,
+                    Brand.VALENTINO_COUTURE,
+                    Brand.CHAPS,
+                    Brand.ALEXANDER_JULIAN,
+                    Brand.HUGO_BOSS,
+                    Brand.RALPH_LAUREN,
+                    Brand.GIORGIO_CORREGGIARI,
+                    Brand.BILL_ROBINSON,
+                    Brand.GIORGIO_ARMANI,
+                    Brand.LUBIAM,
+                    Brand.CHRISTIAN_DIOR,
+                    Brand.PATRICK_AUBERT,
+                    Brand.YVES_SAINT_LAURENT,
+                    Brand.POLO,
+                    Brand.JOHN_REYLE,
+                    Brand.GIANNI_VERSACE,
+                    Brand.SCHOENEMAN,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             },
             {
@@ -166,35 +268,50 @@ export const Clothing: ClothingOutfit = [
                 id: 'sport_coat',
                 description: 'sport coat',
                 plural: false,
-                brands: [],
+                brands: [
+                    Brand.ALEXANDER_JULIAN,
+                    Brand.HERMES,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             },
             {
                 id: 'tuxedo',
                 description: 'tuxedo',
                 plural: false,
-                brands: [],
+                brands: [
+                    Brand.RALPH_LAUREN,
+                    Brand.PIERRE_CARDIN,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             },
             {
                 id: 'tuxedo_with_trousers',
                 description: 'tuxedo',
                 plural: false,
-                brands: [],
+                brands: [
+                    Brand.RALPH_LAUREN,
+                    Brand.PIERRE_CARDIN,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             },
             {
                 id: 'jacket',
                 description: 'jacket',
                 plural: false,
-                brands: [],
+                brands: [
+                    Brand.BERGDORF_GODDMAN,
+                    Brand.MARIO_VALENTINO,
+                    Brand.GIORGIO_ARMANI,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             },
             {
                 id: 'dinner_jacket',
                 description: 'dinner jacket',
                 plural: false,
-                brands: [],
+                brands: [
+                    Brand.HUGO_BOSS,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             },
         ]
@@ -214,14 +331,21 @@ export const Clothing: ClothingOutfit = [
                 id: 'handkerchief',
                 description: 'handkerchief',
                 plural: false,
-                brands: [],
+                brands: [
+                    Brand.BROOKS_BROTHERS,
+                    Brand.ASHEAR_BROS,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             },
             {
                 id: 'pocket_square',
                 description: 'pocket square',
                 plural: false,
-                brands: [],
+                brands: [
+                    Brand.PATRICK_AUBERT,
+                    Brand.POLO,
+                    Brand.PAUL_STUART,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             }
         ]
@@ -240,14 +364,18 @@ export const Clothing: ClothingOutfit = [
                 id: 'coat',
                 description: 'coat',
                 plural: false,
-                brands: [],
+                brands: [
+                    Brand.LUCIANO_SOPRANI,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             },
             {
                 id: 'topcoat',
                 description: 'topcoat',
                 plural: false,
-                brands: [],
+                brands: [
+                    Brand.GIORGIO_ARMANI,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             },
             {
@@ -274,21 +402,32 @@ export const Clothing: ClothingOutfit = [
                 id: 'trousers',
                 description: 'trousers',
                 plural: true,
-                brands: [],
+                brands: [
+                    Brand.MARIO_VALENTINO,
+                    Brand.LAZO,
+                    Brand.ALEXANDER_JULIAN,
+                    Brand.HUGO_BOSS,
+                    Brand.GIORGIO_ARMANI,
+                    Brand.HERMES,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             },
             {
                 id: 'corduroys',
                 description: 'corduroys',
                 plural: true,
-                brands: [],
+                brands: [
+                    Brand.RALPH_LAUREN,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             },
             {
                 id: 'slacks',
                 description: 'slacks',
                 plural: true,
-                brands: [],
+                brands: [
+                    Brand.BROOKS_BROTHERS,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             },
         ]
@@ -307,7 +446,9 @@ export const Clothing: ClothingOutfit = [
                 id: 'belt',
                 description: 'belt',
                 plural: false,
-                brands: [],
+                brands: [
+                    Brand.RALPH_LAUREN,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             }
         ]
@@ -326,7 +467,9 @@ export const Clothing: ClothingOutfit = [
                 id: 'socks',
                 description: 'socks',
                 plural: true,
-                brands: [],
+                brands: [
+                    Brand.INTERWOVEN,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             }
         ]
@@ -345,14 +488,19 @@ export const Clothing: ClothingOutfit = [
                 id: 'wing_tips',
                 description: 'wing tips',
                 plural: true,
-                brands:[],
+                brands: [
+                    Brand.FRATELLI_ROSSETTI,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             },
             {
                 id: 'lace_ups',
                 description: 'lace-ups',
                 plural: true,
-                brands:[],
+                brands: [
+                    Brand.BROOKS_BROTHERS,
+                    Brand.ALLEN_EDMONDS,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             },
             
@@ -360,7 +508,12 @@ export const Clothing: ClothingOutfit = [
                 id: 'shoes',
                 description: 'shoes',
                 plural: true,
-                brands:[],
+                brands: [
+                    Brand.ALLEN_EDMONDS,
+                    Brand.BROOKS_BROTHERS,
+                    Brand.COLE_HAAN,
+                    Brand.FERRANGAMO,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             },
             
@@ -369,7 +522,9 @@ export const Clothing: ClothingOutfit = [
                 description: 'loafers',
                 plural: true,
                 excludedBy: [ 'suit', 'suit_with_trousers', 'tuxedo', 'tuxedo_with_trousers', 'dinner_jacket' ],
-                brands:[],
+                brands: [
+                    Brand.SUSAN_BENNIS_WARREN_EDWARDS,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             },
             
@@ -378,7 +533,9 @@ export const Clothing: ClothingOutfit = [
                 description: 'pumps',
                 plural: true,
                 excludedBy: [ 'suit', 'suit_with_trousers', 'tuxedo', 'tuxedo_with_trousers', 'dinner_jacket' ],
-                brands:[],
+                brands: [
+                    Brand.FERRANGAMO,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             },
             
@@ -387,7 +544,9 @@ export const Clothing: ClothingOutfit = [
                 description: 'moccasins',
                 plural: true,
                 excludedBy: [ 'suit', 'suit_with_trousers', 'tuxedo', 'tuxedo_with_trousers', 'dinner_jacket' ],
-                brands:[],
+                brands: [
+                    Brand.COLE_HAAN,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             },
             
@@ -396,7 +555,11 @@ export const Clothing: ClothingOutfit = [
                 description: 'slip-ons',
                 plural: true,
                 excludedBy: [ 'suit', 'suit_with_trousers', 'tuxedo', 'tuxedo_with_trousers', 'dinner_jacket' ],
-                brands:[],
+                brands: [
+                    Brand.SUSAN_BENNIS_WARREN_EDWARDS,
+                    Brand.GIANNI_VERSACE,
+                    Brand.BAKER_BENJES,
+                ],
                 score: getScoreUniform(0, 1, Math.random),
             },
         ]

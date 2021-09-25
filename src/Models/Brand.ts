@@ -43,7 +43,7 @@ export enum Brand {
     PATRICK_AUBERT = 'Patrick Aubert',
     LAFONT_PARIS = 'Lafont Paris',
     YVES_SAINT_LAURENT = 'Yves Saint Laurent',
-    FERRAGAMO = 'Ferragamo',
+    FERRANGAMO = 'Ferrangamo',
     INTERWOVEN = 'Interwoven',
     POLO = 'Polo',
     JOHN_REYLE = 'John Reyle',
@@ -86,6 +86,7 @@ export enum Brand {
     RICHEL = 'Richel',
     STUDIO_000_1 = 'Studio 000.1',
     DERIGUEUR = 'Derigueur',
+    RAINBOW_NECKWEAR = 'Rainbow Neckwear',
 };
 
 export default Brand;
