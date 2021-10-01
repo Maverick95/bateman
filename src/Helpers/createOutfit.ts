@@ -1,4 +1,5 @@
-import { ClothingNode, ClothingOutfit } from '../Models/Clothing';
+import { Brand } from '../Models/Brand';
+import { ClothingItem, ClothingOutfit } from '../Models/Clothing';
 
 interface CreateOutfitCategory {
     id: string,
@@ -10,7 +11,6 @@ interface CreateOutfitCategory {
 
 interface CreateOutfitItem {
     id: string,
-    output: string,
     category_id: string,
     score: number,
     included: boolean,
@@ -31,20 +31,26 @@ export interface CreateOutfitData {
 
 }
 
-export const getClothingNode = (outfit: ClothingOutfit, id: string): ClothingNode => {
+export const getClothingItem = (outfit: ClothingOutfit, id: string): ClothingItem => {
 
-    outfit.forEach((category) => {
-        if (category.id === id) {
-            return category;
-        }
-        category.items.forEach((item) => {
-            if (item.id === id) {
-                return item;
+    for (let i:number = 0; i < outfit.length; i++) {
+        for (let j:number = 0; j < outfit[i].items.length; j++) {
+            if (outfit[i].items[j].id === id) {
+                return outfit[i].items[j];
             }
-        });
-    });
+        }
+    }
 
     return null;
+};
+
+export const getOutputFromClothingItem = (item: ClothingItem): string => {
+
+    const brand_index: number = Math.floor(Math.random() * (item.brands.length - 1));
+    const brand: Brand = item.brands[brand_index];
+
+    return `${item.plural ? '' : 'a '}${item.description} by ${brand}`;
+
 };
 
 const getNextOutfitCategory = (data: CreateOutfitData): CreateOutfitCategory => data.categories.find(
@@ -52,7 +58,7 @@ const getNextOutfitCategory = (data: CreateOutfitData): CreateOutfitCategory => 
 
 export const createOutfit = (outfit: ClothingOutfit): string => {
 
-    const outputs: string[] = [];
+    const item_ids: string[] = [];
 
     const data = generateProcessData(outfit);
 
@@ -75,13 +81,6 @@ export const createOutfit = (outfit: ClothingOutfit): string => {
 
     However the statement of an exclusion rule can work both ways, based on which is chosen first.
 
-    IDEA NUMBER 2 -
-
-    NOTE - to make everything easier, at the start it may be best to convert category-level includes/excludes
-    to item-level includes/excludes
-
-    It might make the general algorithm easier.
-
     Inclusions / exclusions between categories and items are not linked!
     Translation, just because a category is flagged as included/excluded doesn't mean all the sub-items are,
     this is actually incorrect logic.
@@ -102,7 +101,7 @@ export const createOutfit = (outfit: ClothingOutfit): string => {
 
         if (item !== null) {
 
-            outputs.push(item.output);
+            item_ids.push(item.id);
 
             data.includes.filter((include) =>
                 [category.id, item.id].includes(include.cause))
@@ -141,7 +140,8 @@ export const createOutfit = (outfit: ClothingOutfit): string => {
     }
 
     const result =
-        outputs.map((output, index, result) => {
+        item_ids.map((id, index, result) => {
+            const output = getOutputFromClothingItem(getClothingItem(outfit, id));
             if (index === result.length - 1) {
                 return output;
             }
@@ -174,7 +174,6 @@ export const generateProcessData = (outfit: ClothingOutfit): CreateOutfitData =>
         ...previous,
         ...current.items.map((item) => ({
             id: item.id,
-            output: `${item.plural ? '' : 'a '}${item.description}`,
             category_id: current.id,
             score: item.score(),
             included: (item.includedBy?.length ?? 0) === 0,

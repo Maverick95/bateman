@@ -74,7 +74,6 @@ export const data_generateProcessData: { input: ClothingOutfit, expected: Create
             items: [
                 {
                     id: 'item_1',
-                    output: 'a item_1',
                     category_id: 'category_1',
                     score: 0.7,
                     included: true,
@@ -82,7 +81,6 @@ export const data_generateProcessData: { input: ClothingOutfit, expected: Create
                 },
                 {
                     id: 'item_2',
-                    output: 'a item_2',
                     category_id: 'category_1',
                     score: 0.6,
                     included: true,
@@ -90,7 +88,6 @@ export const data_generateProcessData: { input: ClothingOutfit, expected: Create
                 },
                 {
                     id: 'item_4',
-                    output: 'a item_4',
                     category_id: 'category_2',
                     score: 0.5,
                     included: true,
@@ -98,7 +95,6 @@ export const data_generateProcessData: { input: ClothingOutfit, expected: Create
                 },
                 {
                     id: 'item_3',
-                    output: 'a item_3',
                     category_id: 'category_2',
                     score: 0.3,
                     included: true,
