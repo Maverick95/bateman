@@ -10,8 +10,8 @@ module.exports = {
     "dist",
     "coverage",
     "examples",
-    "src/Components",
-    "src/*.*",
+    "src/Data",
+    "src/Models",
     "src/*.*",
   ],
   jest: {
