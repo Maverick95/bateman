@@ -22,6 +22,19 @@ interface CreateOutfitRule {
     effect: string,
 }
 
+interface CreateOutfitChosenItem {
+
+  // Fill in the types here you require for interim output production.
+  // Unbranded description of outfit.
+  // The brand.
+  // The order (pulled from the category)
+
+  description: string;
+  brand: Brand;
+  order: number;
+
+}
+
 export interface CreateOutfitData {
 
     categories: CreateOutfitCategory[],
@@ -89,6 +102,9 @@ export const createOutfit = (outfit: ClothingOutfit): string => {
     
     */
 
+    // Beginning here, need to abstract better the process for producing results.
+
+
     for (
         var category = getNextOutfitCategory(data);
         category !== null;
@@ -100,6 +116,9 @@ export const createOutfit = (outfit: ClothingOutfit): string => {
             !item.excluded) ?? null;
 
         if (item !== null) {
+
+          // For example, here we have exposure to both the item and the category.
+          // So we would generate an interim type here, and populate.
 
             item_ids.push(item.id);
 

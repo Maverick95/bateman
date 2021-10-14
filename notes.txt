@@ -93,3 +93,12 @@ Next I think is adding the brands in.
 Brands are included within the lower levels, so you'll have to trawl through the notes again.
 
 Next step is to choose a random brand from each.
+
+This is fine and we have success.
+
+Additionally these choices need grouping into some final string.
+
+We need to abstract out the production of the actual final result.
+
+In the interim, each clothing item needs transforming into a particular interim object type.
+
