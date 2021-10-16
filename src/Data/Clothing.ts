@@ -10,6 +10,7 @@ export const Clothing: ClothingOutfit = [
         id: 'eyewear',
         description: 'eyewear',
         mandatory: false,
+        order: 12,
         score: getScoreUniform(0, 1, Math.random),
 
         items: [
@@ -42,6 +43,7 @@ export const Clothing: ClothingOutfit = [
         id: 'wristwear',
         description: 'wristwear',
         mandatory: false,
+        order: 7,
         score: getScoreUniform(0, 1, Math.random),
 
         items: [
@@ -72,6 +74,7 @@ export const Clothing: ClothingOutfit = [
         id: 'on_chest',
         description: 'on_chest',
         mandatory: true,
+        order: 3,
         score: getScoreUniform(0, 1, Math.random),
 
         items: [
@@ -140,6 +143,7 @@ export const Clothing: ClothingOutfit = [
         id: 'over_chest_1',
         description: 'over_chest_1',
         mandatory: false,
+        order: 4,
         score: getScoreUniform(0, 1, Math.random),
 
         items: [
@@ -184,6 +188,7 @@ export const Clothing: ClothingOutfit = [
         id: 'neckwear',
         description: 'neckwear',
         mandatory: true,
+        order: 5,
         includedBy: [ 'shirt' ],
         score: getScoreUniform(0, 1, Math.random),
 
@@ -252,6 +257,7 @@ export const Clothing: ClothingOutfit = [
         id: 'over_chest_2',
         description: 'over_chest_2',
         mandatory: false,
+        order: 2,
         score: getScoreUniform(0, 1, Math.random),
 
         items: [
@@ -396,6 +402,7 @@ export const Clothing: ClothingOutfit = [
         id: 'in_the_pocket',
         description: 'in_the_pocket',
         mandatory: false,
+        order: 6,
         includedBy: [ 'over_chest_2' ],
         score: getScoreUniform(0, 1, Math.random),
         
@@ -432,6 +439,7 @@ export const Clothing: ClothingOutfit = [
         id: 'outer_coat',
         description: 'outer_coat',
         mandatory: false,
+        order: 1,
         score: getScoreUniform(0, 1, Math.random),
 
         items: [
@@ -474,6 +482,7 @@ export const Clothing: ClothingOutfit = [
         id: 'legwear',
         description: 'legwear',
         mandatory: true,
+        order: 8,
         excludedBy: [ 'suit_with_trousers', 'tuxedo_with_trousers' ],
         score: getScoreUniform(0, 1, Math.random),
 
@@ -525,6 +534,7 @@ export const Clothing: ClothingOutfit = [
         id: 'waistwear',
         description: 'waistwear',
         mandatory: true,
+        order: 9,
         score: getScoreUniform(0, 1, Math.random),
 
         items: [
@@ -547,6 +557,7 @@ export const Clothing: ClothingOutfit = [
         id: 'anklewear',
         description: 'anklewear',
         mandatory: true,
+        order: 10,
         score: getScoreUniform(0, 1, Math.random),
 
         items: [
@@ -569,6 +580,7 @@ export const Clothing: ClothingOutfit = [
         id: 'footwear',
         description: 'footwear',
         mandatory: true,
+        order: 11,
         score: getScoreUniform(0, 1, Math.random),
 
         items: [

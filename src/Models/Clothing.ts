@@ -17,6 +17,7 @@ export interface ClothingItem extends ClothingNode {
 
 export interface ClothingCategory extends ClothingNode {
     mandatory: boolean,
+    order: number,
     items: ClothingItem[],
 }
 

@@ -1,5 +1,5 @@
 import { data_generateProcessData } from './createOutfit.testdata';
-import { CreateOutfitData, createOutfit, generateProcessData } from './createOutfit';
+import { OutfitData, createOutfit, generateProcessData } from './createOutfit';
 import { Clothing } from '../Data/Clothing';
 import { ClothingOutfit } from '../Models/Clothing';
 
@@ -10,7 +10,7 @@ describe('generateProcessData', () => {
 
         // ARRANGE.
         const input_typed = input as ClothingOutfit;
-        const expected_typed = expected as CreateOutfitData;
+        const expected_typed = expected as OutfitData;
 
         // ACT
         const output = generateProcessData(input_typed);

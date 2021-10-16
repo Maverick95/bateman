@@ -102,3 +102,34 @@ We need to abstract out the production of the actual final result.
 
 In the interim, each clothing item needs transforming into a particular interim object type.
 
+Now we need the order from each category.
+
+This may be subjective, need a definitive list.
+
+eyewear
+wristwear
+on_chest
+over_chest_1
+neckwear
+over_chest_2
+in_the_pocket
+outer_coat
+legwear
+waistwear
+anklewear
+footwear
+
+I'd go with...
+
+1   outer_coat
+2   over_chest_2 (suit etc.)
+3   on_chest (shirt etc.)
+4   over_chest_1
+5   neckwear
+6   in_the_pocket
+7   wristwear
+8   legwear
+9   waistwear
+10  anklewear
+11  footwear
+12  eyewear (always at end)

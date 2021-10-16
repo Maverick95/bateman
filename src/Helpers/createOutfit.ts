@@ -1,7 +1,10 @@
+import * as _ from 'lodash';
 import { Brand } from '../Models/Brand';
-import { ClothingItem, ClothingOutfit } from '../Models/Clothing';
+import { ClothingCategory, ClothingItem, ClothingOutfit } from '../Models/Clothing';
 
-interface CreateOutfitCategory {
+/* Base data types for generating outfits. */
+
+interface OutfitCategory {
     id: string,
     score: number,
     included: boolean,
@@ -9,7 +12,7 @@ interface CreateOutfitCategory {
     processed: boolean,
 }
 
-interface CreateOutfitItem {
+interface OutfitItem {
     id: string,
     category_id: string,
     score: number,
@@ -17,12 +20,14 @@ interface CreateOutfitItem {
     excluded: boolean,
 }
 
-interface CreateOutfitRule {
+interface OutfitRule {
     cause: string,
     effect: string,
 }
 
-interface CreateOutfitChosenItem {
+/* Interim data types used during processing. */
+
+interface OutfitChosenItem {
 
   // Fill in the types here you require for interim output production.
   // Unbranded description of outfit.
@@ -35,14 +40,28 @@ interface CreateOutfitChosenItem {
 
 }
 
-export interface CreateOutfitData {
+export interface OutfitData {
 
-    categories: CreateOutfitCategory[],
-    items: CreateOutfitItem[],
-    includes: CreateOutfitRule[],
-    excludes: CreateOutfitRule[],
+    categories: OutfitCategory[],
+    items: OutfitItem[],
+    includes: OutfitRule[],
+    excludes: OutfitRule[],
 
 }
+
+export const createOutfitChosenItem = (
+    clothingCategory: ClothingCategory,
+    outfitCategory: OutfitCategory,
+    clothingItem: ClothingItem,
+    outfitItem: OutfitItem) : OutfitChosenItem => {
+
+    const brand_index: number = Math.floor(Math.random() * (clothingItem.brands.length - 1));
+    return {
+        description: `${clothingItem.plural ? '' : 'a '}${clothingItem.description}`,
+        brand: clothingItem.brands[brand_index],
+        order: clothingCategory.order,
+    }
+};
 
 export const getClothingItem = (outfit: ClothingOutfit, id: string): ClothingItem => {
 
@@ -57,21 +76,77 @@ export const getClothingItem = (outfit: ClothingOutfit, id: string): ClothingIte
     return null;
 };
 
-export const getOutputFromClothingItem = (item: ClothingItem): string => {
+export const getClothingCategory = (outfit: ClothingOutfit, id: string): ClothingCategory =>
+    outfit.find((category) => category.id === id) ?? null;
 
-    const brand_index: number = Math.floor(Math.random() * (item.brands.length - 1));
-    const brand: Brand = item.brands[brand_index];
+export const getOutputFromChosenItems = (items: OutfitChosenItem[]): string => {
 
-    return `${item.plural ? '' : 'a '}${item.description} by ${brand}`;
+    // Here is where the fun is!
+    // Lodash may come in handy here.
+    // You need to..
+    // a) group by the brand,
+    // b) order by the minimum order value,
+    // c) within the category, combine the descriptions, append the brand on the end
 
-};
+    const groups = _.toPairs(_.groupBy(items, (item) => item.brand));
 
-const getNextOutfitCategory = (data: CreateOutfitData): CreateOutfitCategory => data.categories.find(
+    const aggr_groups = _.map(groups, (pairs) => {
+        const [key, groupedItems] = pairs;
+        return ({
+            brand: key,
+            order: _.min(groupedItems.map((item) => item.order)),
+            length: groupedItems.length,
+            description: _.orderBy(groupedItems, (item) => item.order)
+                .map((item, index, array) =>
+                `${item.description}${((i: number, a: OutfitChosenItem[]) => {
+                    if (i === a.length - 1) {
+                        return '';
+                    }
+                    if (i === a.length - 2) {
+                        return ' and ';
+                    }
+                    return ', ';
+                })(index, array)}`).join(''),
+        })
+    });
+
+    const display_aggr_groups =
+        _.orderBy(aggr_groups, (aggr) => aggr.order)
+        .map((aggr, index, array) => `${aggr.description}${
+            ((b: string, l: number) => {
+                if (l === 1) {
+                    return ` by ${b}`;
+                }
+                if (l === 2) {
+                    return `, both by ${b}`;
+                }
+                return `, all by ${b}`;
+            })(aggr.brand, aggr.length)}${
+                (
+                (
+                    v: { brand: string; order: number; length: number; description: string; },
+                    i: number,
+                    a: { brand: string; order: number; length: number; description: string; }[]
+                ) => {
+                    if (i === a.length - 1) {
+                        return '';
+                    }
+                    if (i === a.length - 2) {
+                        return `${v.length > 1 ? ',' : ''} and `;
+                    }
+                    return ', ';
+                })(aggr, index, array)}`).join('');
+
+    return display_aggr_groups;
+
+}
+
+const getNextOutfitCategory = (data: OutfitData): OutfitCategory => data.categories.find(
     (category) => !category.processed && category.included && !category.excluded) ?? null;
 
 export const createOutfit = (outfit: ClothingOutfit): string => {
 
-    const item_ids: string[] = [];
+    const chosen_items: OutfitChosenItem[] = [];
 
     const data = generateProcessData(outfit);
 
@@ -117,10 +192,17 @@ export const createOutfit = (outfit: ClothingOutfit): string => {
 
         if (item !== null) {
 
-          // For example, here we have exposure to both the item and the category.
-          // So we would generate an interim type here, and populate.
+            const clothingCategory = getClothingCategory(outfit, category.id);
+            const clothingItem = getClothingItem(outfit, item.id);
 
-            item_ids.push(item.id);
+            const outfitChosenItem = createOutfitChosenItem(
+                clothingCategory,
+                category,
+                clothingItem,
+                item,
+            )
+
+            chosen_items.push(outfitChosenItem);
 
             data.includes.filter((include) =>
                 [category.id, item.id].includes(include.cause))
@@ -158,27 +240,17 @@ export const createOutfit = (outfit: ClothingOutfit): string => {
 
     }
 
-    const result =
-        item_ids.map((id, index, result) => {
-            const output = getOutputFromClothingItem(getClothingItem(outfit, id));
-            if (index === result.length - 1) {
-                return output;
-            }
-            if (index === result.length - 2) {
-                return `${output} and `;
-            }
-            return `${output}, `;
-        }).join('');
+    const result = getOutputFromChosenItems(chosen_items);
 
     return result;
 
 };
 
-export const generateProcessData = (outfit: ClothingOutfit): CreateOutfitData => {
+export const generateProcessData = (outfit: ClothingOutfit): OutfitData => {
 
     // Categories
 
-    const categories = outfit.map<CreateOutfitCategory>(
+    const categories = outfit.map<OutfitCategory>(
         (category) => ({
             id: category.id,
             score: category.score(),
@@ -189,7 +261,7 @@ export const generateProcessData = (outfit: ClothingOutfit): CreateOutfitData =>
 
     // Items
 
-    const items = outfit.reduce<CreateOutfitItem[]>((previous, current) => [
+    const items = outfit.reduce<OutfitItem[]>((previous, current) => [
         ...previous,
         ...current.items.map((item) => ({
             id: item.id,
@@ -202,7 +274,7 @@ export const generateProcessData = (outfit: ClothingOutfit): CreateOutfitData =>
 
     // Includes
 
-    const includes_category = outfit.reduce<CreateOutfitRule[]>((previous, current) => [
+    const includes_category = outfit.reduce<OutfitRule[]>((previous, current) => [
         ...previous,
         ...(current.includedBy?.map((included) => ({
             cause: included,
@@ -210,9 +282,9 @@ export const generateProcessData = (outfit: ClothingOutfit): CreateOutfitData =>
         })) ?? [])
     ], []);
 
-    const includes_item = outfit.reduce<CreateOutfitRule[]>((previous, current) => [
+    const includes_item = outfit.reduce<OutfitRule[]>((previous, current) => [
         ...previous,
-        ...current.items.reduce<CreateOutfitRule[]>((previousItem, currentItem) => [
+        ...current.items.reduce<OutfitRule[]>((previousItem, currentItem) => [
             ...previousItem,
             ...currentItem.includedBy?.map(
                 (included) => ({
@@ -226,7 +298,7 @@ export const generateProcessData = (outfit: ClothingOutfit): CreateOutfitData =>
 
     // Excludes
 
-    const excludes_category = outfit.reduce<CreateOutfitRule[]>((previous, current) => [
+    const excludes_category = outfit.reduce<OutfitRule[]>((previous, current) => [
         ...previous,
         ...(current.excludedBy?.map((excluded) => ({
             cause: excluded,
@@ -234,9 +306,9 @@ export const generateProcessData = (outfit: ClothingOutfit): CreateOutfitData =>
         })) ?? [])
     ], []);
 
-    const excludes_item = outfit.reduce<CreateOutfitRule[]>((previous, current) => [
+    const excludes_item = outfit.reduce<OutfitRule[]>((previous, current) => [
         ...previous,
-        ...current.items.reduce<CreateOutfitRule[]>((previousItem, currentItem) => [
+        ...current.items.reduce<OutfitRule[]>((previousItem, currentItem) => [
             ...previousItem,
             ...currentItem.excludedBy?.map(
                 (excluded) => ({

@@ -1,13 +1,14 @@
 import { ClothingOutfit } from '../Models/Clothing';
-import { CreateOutfitData } from './createOutfit'; 
+import { OutfitData } from './createOutfit'; 
 
-export const data_generateProcessData: { input: ClothingOutfit, expected: CreateOutfitData }[] = [
+export const data_generateProcessData: { input: ClothingOutfit, expected: OutfitData }[] = [
     {
         input: [
             {
                 id: 'category_1',
                 description: 'category_1',
                 mandatory: false,
+                order: 1,
                 score: () => 0.5,
                 includedBy: [ 'item_4' ],
                 items: [
@@ -32,6 +33,7 @@ export const data_generateProcessData: { input: ClothingOutfit, expected: Create
                 id: 'category_2',
                 description: 'category_2',
                 mandatory: false,
+                order: 2,
                 score: () => 0.7,
                 items: [
                     {
