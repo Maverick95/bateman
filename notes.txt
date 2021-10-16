@@ -133,3 +133,34 @@ I'd go with...
 10  anklewear
 11  footwear
 12  eyewear (always at end)
+
+
+
+
+
+    /*
+    "the enforcement of a rule indicates that it's CAUSE is a fixed decision that cannot be overridden
+    by any further consequence of the rule being enforced"
+
+    All rules have a CAUSE and an EFFECT. However an exclusion rule actually states, "these two things cannot coexist".
+
+    For example, loafers are excluded by a suit with trousers.
+
+    A = suit with trousers
+    B = loafers
+
+    A => ~B (suit with trousers implies no loafers allowed)
+    <=>
+    B => ~A (loafers implies no suit with trousers allowed)
+
+    This is why categories are scored, it gives priority to exclusion rules.
+
+    However the statement of an exclusion rule can work both ways, based on which is chosen first.
+
+    Inclusions / exclusions between categories and items are not linked!
+    Translation, just because a category is flagged as included/excluded doesn't mean all the sub-items are,
+    this is actually incorrect logic.
+
+    e.g. the inclusion of a particular item can be governed by a separate rule than the inclusion of the category.
+    
+    */

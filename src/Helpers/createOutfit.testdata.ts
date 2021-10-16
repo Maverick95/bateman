@@ -1,7 +1,7 @@
 import { ClothingOutfit } from '../Models/Clothing';
-import { OutfitData } from './createOutfit'; 
+import { CreateOutfitData } from './createOutfit'; 
 
-export const data_generateProcessData: { input: ClothingOutfit, expected: OutfitData }[] = [
+export const data_generateProcessData: { input: ClothingOutfit, expected: CreateOutfitData }[] = [
     {
         input: [
             {
