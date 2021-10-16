@@ -2,6 +2,8 @@ import * as _ from 'lodash';
 import { Brand } from '../Models/Brand';
 import { ClothingCategory, ClothingItem, ClothingOutfit } from '../Models/Clothing';
 
+// TODO - Jesus you need to now tidy up this file, it fulfills a purpose but jesus it's messy and overcomplicated.
+
 /* Base data types for generating outfits. */
 
 interface OutfitCategory {
